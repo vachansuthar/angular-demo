@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+<div class="container">
+    <h1>Users</h1>
+
+    <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>UserName</label>
+                    <input type="text" placeholder="UserName" formControlName="UserName" class="form-control" />
+                    <div class="lbl-error"
+                        *ngIf="userForm.get('UserName').touched && userForm.get('UserName').errors && userForm.get('UserName').errors.required">
+                        UserName is required</div>
+                    <div class="lbl-error"
+                        *ngIf="userForm.get('UserName').touched && userForm.get('UserName').errors && userForm.get('UserName').errors.email">
+                        Email is invalid</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="text" placeholder="Password" formControlName="Password" class="form-control" />
+                    <div class="lbl-error"
+                        *ngIf="userForm.get('Password').touched && userForm.get('Password').errors && userForm.get('Password').errors.required">
+                        Password is required</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" placeholder="First Name" formControlName="FirstName" class="form-control" />
+                    <div class="lbl-error" *ngIf="userForm.get('FirstName').touched && userForm.get('FirstName').errors && userForm.get('FirstName').errors.required">First Name is required</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="Last Name" formControlName="LastName" class="form-control" />
+                    <div class="lbl-error" *ngIf="userForm.get('LastName').touched && userForm.get('LastName').errors && userForm.get('LastName').errors.required">Last Name is required</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Mobile No</label>
+                    <input type="text" placeholder="Mobile No" formControlName="MobileNo" class="form-control" />
+                    <div class="lbl-error" *ngIf="userForm.get('MobileNo').touched && userForm.get('MobileNo').errors">
+                        <span *ngIf="userForm.get('MobileNo').errors.required">Mobile No is required</span>
+                        <span *ngIf="userForm.get('MobileNo').errors.minlength">10 digits only</span>
+                        <span *ngIf="userForm.get('MobileNo').errors.maxlength">10 digits only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button routerLink="/user-list" type="button" class="btn btn-secondary btn-cancel">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

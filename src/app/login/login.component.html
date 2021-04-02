@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-header">Login</div>
+        <div class="panel-body">
+            <form [formGroup]="userGroup" (ngSubmit)="Login()">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>UserName</label>
+                            <input type="text" placeholder="UserName" formControlName="UserName" class="form-control" />
+                            <div class="lbl-error"
+                                *ngIf="userGroup.get('UserName').touched && userGroup.get('UserName').errors && userGroup.get('UserName').errors.required">
+                                UserName is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="text" placeholder="Password" formControlName="Password" class="form-control" />
+                            <div class="lbl-error"
+                                *ngIf="userGroup.get('Password').touched && userGroup.get('Password').errors && userGroup.get('Password').errors.required">
+                                Password is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
